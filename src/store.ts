@@ -9,20 +9,21 @@ import {
 } from 'vue/compiler-sfc'
 import { OutputModes } from './output/types'
 
-const defaultMainFile = 'App.vue'
-
+const defaultMainFile = 'index.php'
 const welcomeCode = `
-<script setup>
-import { ref } from 'vue'
+<?php
 
-const msg = ref('Hello World!')
-</script>
+require __DIR__ . "/vendor/autoload.php";
 
-<template>
-  <h1>{{ msg }}</h1>
-  <input v-model="msg">
-</template>
-`.trim()
+app()->get('/', function () {
+  response()->json([
+    'message' => 'hello',
+  ]);
+});
+
+app()->run();
+`;
+// .trim()
 
 export class File {
   filename: string

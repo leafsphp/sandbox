@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { Store } from '../store'
-import { computed, inject, ref, VNode, Ref } from 'vue'
+import { computed, inject, ref, VNode } from 'vue'
 
 const store = inject('store') as Store
 
 const pending = ref(false)
-const pendingFilename = ref('Comp.vue')
+const pendingFilename = ref('File.php')
 const importMapFile = 'import-map.json'
-const showImportMap = inject('import-map') as Ref<boolean>
 const files = computed(() =>
   Object.entries(store.state.files)
     .filter(([name, file]) => name !== importMapFile && !file.hidden)
@@ -16,14 +15,14 @@ const files = computed(() =>
 
 function startAddFile() {
   let i = 0
-  let name = `Comp.vue`
+  let name = `File.php`
 
   while (true) {
     let hasConflict = false
     for (const file in store.state.files) {
       if (file === name) {
         hasConflict = true
-        name = `Comp${++i}.vue`
+        name = `File${++i}.php`
         break
       }
     }
@@ -48,9 +47,9 @@ function doneAddFile() {
   if (!pending.value) return
   const filename = pendingFilename.value
 
-  if (!/\.(vue|js|ts|css)$/.test(filename)) {
+  if (!/\.(php|phtml|html|vue|tsx|jsx|js|ts|css|json)$/.test(filename)) {
     store.state.errors = [
-      `Playground only supports *.vue, *.js, *.ts, *.css files.`
+      `Playground only supports *.php, *.phtml, *html, *.json, *.js, *.ts, *.jsx, *.tsx, *.vue, *.css files.`
     ]
     return
   }
@@ -81,7 +80,6 @@ function horizontalScroll(e: WheelEvent) {
 <template>
   <div
     class="file-selector"
-    :class="{ 'has-import-map': showImportMap }"
     @wheel="horizontalScroll"
     ref="fileSel"
   >
@@ -112,16 +110,6 @@ function horizontalScroll(e: WheelEvent) {
       />
     </div>
     <button class="add" @click="startAddFile">+</button>
-
-    <div v-if="showImportMap" class="import-map-wrapper">
-      <div
-        class="file import-map"
-        :class="{ active: store.state.activeFile.filename === importMapFile }"
-        @click="store.setActive(importMapFile)"
-      >
-        <span class="label">Import Map</span>
-      </div>
-    </div>
   </div>
 </template>
 

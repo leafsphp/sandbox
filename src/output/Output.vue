@@ -5,44 +5,39 @@ import { Store } from '../store'
 import { inject, ref, computed } from 'vue'
 import type { OutputModes } from './types'
 
-const props = defineProps<{
-  showCompileOutput?: boolean
-  ssr: boolean
-}>()
-
 const store = inject('store') as Store
-const modes = computed(() =>
-  props.showCompileOutput
-    ? (['preview', 'js', 'css', 'ssr'] as const)
-    : (['preview'] as const)
-)
+const modes = computed(() => (['preview'] as const))
+const output = ref('')
 
 const mode = ref<OutputModes>(
   (modes.value as readonly string[]).includes(store.initialOutputMode)
     ? store.initialOutputMode as OutputModes
     : 'preview'
 )
+
+const run = () => {
+  output.value = JSON.stringify({
+    message: 'hello',
+  })
+  // console.log(store.state.files);
+}
 </script>
 
 <template>
   <div class="tab-buttons">
-    <button
-      v-for="m of modes"
-      :class="{ active: mode === m }"
-      @click="mode = m"
-    >
+    <button v-for="m of modes" :class="{ active: mode === m }" @click="mode = m">
       <span>{{ m }}</span>
+    </button>
+
+    <button @click="run">
+      <span>RUN</span>
     </button>
   </div>
 
   <div class="output-container">
-    <Preview :show="mode === 'preview'" :ssr="ssr" />
-    <CodeMirror
-      v-if="mode !== 'preview'"
-      readonly
-      :mode="mode === 'css' ? 'css' : 'javascript'"
-      :value="store.state.activeFile.compiled[mode]"
-    />
+    <Preview :output="output" />
+    <CodeMirror v-if="mode !== 'preview'" readonly :mode="mode === 'css' ? 'css' : 'javascript'"
+      :value="store.state.activeFile.compiled[mode]" />
   </div>
 </template>
 

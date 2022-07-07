@@ -2,9 +2,13 @@ import CodeMirror from 'codemirror'
 import './codemirror.css'
 
 // modes
+import 'codemirror/mode/php/php.js'
 import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/mode/css/css.js'
 import 'codemirror/mode/htmlmixed/htmlmixed.js'
+
+// theme
+import 'codemirror/theme/ayu-mirage.css';
 
 // addons
 import 'codemirror/addon/edit/closebrackets.js'

@@ -1,7 +1,7 @@
 {
   "name": "@vue/repl",
-  "version": "1.3.0",
-  "description": "Vue component for editing Vue components",
+  "version": "0.0.0",
+  "description": "Live code with output for Leaf",
   "main": "dist/ssr-stub.js",
   "module": "dist/vue-repl.js",
   "files": [
@@ -25,14 +25,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuejs/repl.git"
+    "url": "git+https://github.com/leafsphp/sandbox.git"
   },
-  "author": "Evan You",
+  "author": "Michael Darko",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vuejs/repl/issues"
+    "url": "https://github.com/leafsphp/sandbox/issues"
   },
-  "homepage": "https://github.com/vuejs/repl#readme",
+  "homepage": "https://github.com/leafsphp/sandbox#readme",
   "devDependencies": {
     "@babel/types": "^7.15.6",
     "@microsoft/api-extractor": "^7.19.2",

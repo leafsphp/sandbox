@@ -14,7 +14,9 @@ const onChange = debounce((code: string) => {
 
 const activeMode = computed(() => {
   const { filename } = store.state.activeFile
-  return filename.endsWith('.vue') || filename.endsWith('.html')
+  return filename.endsWith('.php')
+    ? 'php'
+    : filename.endsWith('.vue') || filename.endsWith('.html')
     ? 'htmlmixed'
     : filename.endsWith('.css')
     ? 'css'

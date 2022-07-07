@@ -1,4 +1,4 @@
-# @vue/repl
+# @leafphp/sandbox
 
 Vue SFC REPL as a Vue 3 component.
 

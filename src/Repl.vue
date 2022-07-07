@@ -41,10 +41,7 @@ provide('clear-console', toRef(props, 'clearConsole'))
         <Editor />
       </template>
       <template #right>
-        <Output
-          :showCompileOutput="props.showCompileOutput"
-          :ssr="!!props.ssr"
-        />
+        <Output />
       </template>
     </SplitPane>
   </div>
