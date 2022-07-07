@@ -5,9 +5,10 @@ import { Store } from '../store'
 import { inject, ref, computed } from 'vue'
 import type { OutputModes } from './types'
 
+const props = defineProps(['output', 'run'])
+
 const store = inject('store') as Store
 const modes = computed(() => (['preview'] as const))
-const output = ref('')
 
 const mode = ref<OutputModes>(
   (modes.value as readonly string[]).includes(store.initialOutputMode)
@@ -15,11 +16,12 @@ const mode = ref<OutputModes>(
     : 'preview'
 )
 
-const run = () => {
-  output.value = JSON.stringify({
-    message: 'hello',
-  })
-  // console.log(store.state.files);
+const compileCode = () => {
+  console.log('code compiling...', props.output);
+
+  if (props.run) {
+    props.run();
+  }
 }
 </script>
 
@@ -29,7 +31,7 @@ const run = () => {
       <span>{{ m }}</span>
     </button>
 
-    <button @click="run">
+    <button @click="compileCode">
       <span>RUN</span>
     </button>
   </div>

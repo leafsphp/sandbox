@@ -14,6 +14,8 @@ export interface Props {
   sfcOptions?: SFCOptions
   layout?: string
   ssr?: boolean
+  run?: VoidFunction
+  output?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -22,7 +24,7 @@ const props = withDefaults(defineProps<Props>(), {
   showCompileOutput: true,
   showImportMap: true,
   clearConsole: true,
-  ssr: false
+  ssr: false,
 })
 
 props.store.options = props.sfcOptions
@@ -41,7 +43,7 @@ provide('clear-console', toRef(props, 'clearConsole'))
         <Editor />
       </template>
       <template #right>
-        <Output />
+        <Output :run="run" :output="output" />
       </template>
     </SplitPane>
   </div>
