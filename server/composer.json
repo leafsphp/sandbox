@@ -1,0 +1,9 @@
+{
+    "require": {
+        "leafs/leaf": "^3.0",
+        "leafs/cors": "^1.0",
+        "leafs/fs": "^1.0",
+        "leafs/fetch": "^0.1.0",
+        "leafs/db": "^2.0"
+    }
+}
