@@ -1,6 +1,6 @@
 {
   "name": "@leafphp/sandbox",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Live code with output for Leaf",
   "main": "dist/ssr-stub.js",
   "module": "dist/vue-repl.js",
