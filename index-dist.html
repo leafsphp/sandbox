@@ -18,7 +18,9 @@
       import { createApp } from 'vue'
       import { Repl } from './dist/vue-repl'
       import './dist/style.css'
-      createApp(Repl).mount('#app')
+      createApp({
+        template: '<div class="somethn">Hello<Repl /></div>',
+      }).mount('#app')
     </script>
   </head>
   <body>
