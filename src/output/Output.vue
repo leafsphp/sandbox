@@ -20,7 +20,7 @@ const compileCode = () => {
   console.log('code compiling...', props.output);
 
   if (props.run) {
-    props.run();
+    props.run(store.state.files);
   }
 }
 </script>
