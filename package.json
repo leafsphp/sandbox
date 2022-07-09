@@ -1,5 +1,5 @@
 {
-  "name": "@vue/repl",
+  "name": "@leafphp/sandbox",
   "version": "0.0.0",
   "description": "Live code with output for Leaf",
   "main": "dist/ssr-stub.js",
@@ -51,5 +51,8 @@
   },
   "peerDependencies": {
     "vue": "^3.2.13"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
   }
 }
