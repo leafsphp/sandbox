@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a4dada8f8504e7ced0c6f0f66d4d52e",
+    "content-hash": "a490d119f6d5b6d0d843e78b333c8ad2",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1054,17 +1054,20 @@
         },
         {
             "name": "leafs/cors",
-            "version": "v1.0",
+            "version": "v1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafsphp/cors.git",
-                "reference": "c15c14fd9c60ba61df4c56c262e7b491dc356a0b"
+                "reference": "5a0c77bffe7bba2f7b08b6c9cdd5929f5aa10753"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leafsphp/cors/zipball/c15c14fd9c60ba61df4c56c262e7b491dc356a0b",
-                "reference": "c15c14fd9c60ba61df4c56c262e7b491dc356a0b",
+                "url": "https://api.github.com/repos/leafsphp/cors/zipball/5a0c77bffe7bba2f7b08b6c9cdd5929f5aa10753",
+                "reference": "5a0c77bffe7bba2f7b08b6c9cdd5929f5aa10753",
                 "shasum": ""
+            },
+            "require": {
+                "leafs/http": "*"
             },
             "type": "library",
             "autoload": {
@@ -1096,15 +1099,19 @@
             ],
             "support": {
                 "issues": "https://github.com/leafsphp/cors/issues",
-                "source": "https://github.com/leafsphp/cors/tree/v1.0"
+                "source": "https://github.com/leafsphp/cors/tree/v1.1"
             },
             "funding": [
+                {
+                    "url": "https://github.com/leafsphp",
+                    "type": "github"
+                },
                 {
                     "url": "https://opencollective.com/leaf",
                     "type": "open_collective"
                 }
             ],
-            "time": "2021-09-22T16:47:45+00:00"
+            "time": "2022-07-16T14:33:49+00:00"
         },
         {
             "name": "leafs/date",
