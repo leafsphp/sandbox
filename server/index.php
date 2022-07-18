@@ -2,7 +2,8 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-app()->cors();
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: *');
 
 app()->set404(function () {
 	echo request()->getPath();
