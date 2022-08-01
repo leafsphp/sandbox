@@ -5,6 +5,8 @@
 
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { Repl, ReplStore } from './components/sandbox/repl';
 import axios from 'axios';
 
@@ -74,6 +76,8 @@ const run = async (files: Record<string, any>) => {
     console.log('headers', headers);
 
     if (headers['content-type'] === 'application/json' && typeof res === 'string') {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       return output.value = res.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
     }
 
