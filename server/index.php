@@ -2,14 +2,14 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Headers: *');
+app()->cors();
 
 app()->set404(function () {
 	echo request()->getPath();
 });
 
 app()->get('/', function () {
+	// mysql://b9607a8a6d5ebb:cc589b17@eu-cdbr-west-03.cleardb.net/heroku_fb1311a639bb407?reconnect=true
 	response()->page('./welcome.html');
 });
 
