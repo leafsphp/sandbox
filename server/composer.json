@@ -24,7 +24,6 @@
         "leafs/router": "^0.2.1",
         "leafs/alchemy": "^1.0",
         "pestphp/pest": "*",
-        "leafs/csrf": "^0.3.0",
         "leafs/mvc-core": "^1.1"
     },
     "config": {
