@@ -98,9 +98,8 @@ const run = async (files: Record<string, any>) => {
 };
 
 window.addEventListener('keydown', (e) => {
-  e.preventDefault();
-
   if ((e.key === 'Enter' || e.key === 's') && (e.shiftKey || e.metaKey || e.ctrlKey)) {
+    e.preventDefault();
     run(store.state.files);
   }
 });
