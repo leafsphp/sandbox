@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c8644f072f68f5beb0c393f3f9f134ee",
+    "content-hash": "ffb074a3fe9b018b59c91de170298c16",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1938,19 +1938,20 @@
         },
         {
             "name": "leafs/router",
-            "version": "v0.1.6",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafsphp/router.git",
-                "reference": "aef869ee450c3c6688c23c439667b62ca64304ef"
+                "reference": "b0e065fb190559afe6bba56a208a1de6f2b72e17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leafsphp/router/zipball/aef869ee450c3c6688c23c439667b62ca64304ef",
-                "reference": "aef869ee450c3c6688c23c439667b62ca64304ef",
+                "url": "https://api.github.com/repos/leafsphp/router/zipball/b0e065fb190559afe6bba56a208a1de6f2b72e17",
+                "reference": "b0e065fb190559afe6bba56a208a1de6f2b72e17",
                 "shasum": ""
             },
             "require": {
+                "leafs/anchor": "*",
                 "leafs/http": "*"
             },
             "require-dev": {
@@ -1985,7 +1986,7 @@
             ],
             "support": {
                 "issues": "https://github.com/leafsphp/router/issues",
-                "source": "https://github.com/leafsphp/router/tree/v0.1.6"
+                "source": "https://github.com/leafsphp/router/tree/v0.2.1"
             },
             "funding": [
                 {
@@ -1997,7 +1998,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-05-29T18:53:43+00:00"
+            "time": "2023-05-01T17:38:08+00:00"
         },
         {
             "name": "leafs/session",

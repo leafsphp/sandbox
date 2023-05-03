@@ -20,6 +20,7 @@
         "leafs/http": "^2.2",
         "leafs/auth": "^2.2",
         "leafs/anchor": "^1.4",
-        "leafs/viewi": "^0.1.0"
+        "leafs/viewi": "^0.1.0",
+        "leafs/router": "^0.2.1"
     }
 }
