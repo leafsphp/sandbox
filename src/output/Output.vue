@@ -17,11 +17,7 @@ const mode = ref<OutputModes>(
 )
 
 const compileCode = () => {
-  console.log('code compiling...', props.output);
-
-  if (props.run) {
-    props.run(store.state.files);
-  }
+  props?.run?.(store.state.files)
 }
 </script>
 

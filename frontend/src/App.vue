@@ -74,16 +74,14 @@ const run = async (files: Record<string, any>) => {
       params: config?.method?.toUpperCase() === "GET" ? config.data : {},
     });
 
-    console.log('headers', headers);
-
     if (headers['content-type'] === 'application/json' && typeof res === 'string') {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      return output.value = res.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+      return output.value = `<div style="background:white;color:black;">${res.replaceAll('<', '&lt;').replaceAll('>', '&gt;')}</div>`;
     }
 
     if (typeof res !== 'string') {
-      res = `<html><body style="overflow:scroll">${JSON.stringify(res)}</body></html>`;
+      res = `<html><body style="overflow:scroll;background:white;">${JSON.stringify(res)}</body></html>`;
       // return output.value = JSON.stringify(res);
     }
 
@@ -98,6 +96,14 @@ const run = async (files: Record<string, any>) => {
     }
   }
 };
+
+window.addEventListener('keydown', (e) => {
+  e.preventDefault();
+
+  if ((e.key === 'Enter' || e.key === 's') && (e.shiftKey || e.metaKey || e.ctrlKey)) {
+    run(store.state.files);
+  }
+});
 </script>
 
 <style>
