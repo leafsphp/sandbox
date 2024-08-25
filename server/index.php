@@ -44,11 +44,11 @@ app()->post('/compile', function () {
 				$content
 			);
 
-			$content = str_replace('./', "https://leaf-sandbox-server.herokuapp.com/$folderName/", $content);
-			$content = str_replace('redirect(\'/', "redirect('https://leaf-sandbox-server.herokuapp.com/$folderName/", $content);
-			$content = str_replace('redirect("/', "redirect(\"https://leaf-sandbox-server.herokuapp.com/$folderName/", $content);
-			$content = str_replace("page('https://leaf-sandbox-server.herokuapp.com/$folderName/", 'page(\'./', $content);
-			$content = str_replace("page(\"https://leaf-sandbox-server.herokuapp.com/$folderName/", 'page("./', $content);
+			$content = str_replace('./', "https://leafphp-sandbox-server.fly.dev/$folderName/", $content);
+			$content = str_replace('redirect(\'/', "redirect('https://leafphp-sandbox-server.fly.dev/$folderName/", $content);
+			$content = str_replace('redirect("/', "redirect(\"https://leafphp-sandbox-server.fly.dev/$folderName/", $content);
+			$content = str_replace("page('https://leafphp-sandbox-server.fly.dev/$folderName/", 'page(\'./', $content);
+			$content = str_replace("page(\"https://leafphp-sandbox-server.fly.dev/$folderName/", 'page("./', $content);
 		}
 
 		\Leaf\FS::createFile($folderName . "/" . $name);

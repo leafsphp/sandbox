@@ -40,7 +40,7 @@ const App = {
   
       try {
         let { data } = await axios.get(
-          `https://leaf-sandbox-server.herokuapp.com/${folder.folder}/`
+          `https://leafphp-sandbox-server.fly.dev/${folder.folder}/`
         );
 
         console.log(rawFiles, data, 'files');
