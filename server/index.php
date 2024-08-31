@@ -2,10 +2,12 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-app()->cors();
+// app()->cors();
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: *');
 
 app()->set404(function () {
-	echo request()->getPath();
+	echo request()->getPath() . " not found";
 });
 
 app()->get('/', function () {
