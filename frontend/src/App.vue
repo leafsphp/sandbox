@@ -52,7 +52,7 @@ const run = async (files: Record<string, any>) => {
     rawFiles[filename] = files[filename].code;
   });
 
-  let { data: folder } = await axios.post('https://leafphp-sandbox-server.fly.dev/compile', form);
+  let { data: folder } = await axios.post('http://178.62.71.79/compile', form);
 
   if (!folder) {
     return store.state.errors.push('Internal system error, please try again');
@@ -66,13 +66,27 @@ const run = async (files: Record<string, any>) => {
     let config = JSON.parse(files['request.json'].code || '');
     config = config.path ? config : null;
 
+    window.axios = axios;
+
     let { data: res, headers } = await axios({
-      url: `https://leafphp-sandbox-server.fly.dev${folder.folder}${config?.path ?? '/'}`,
+      url: `http://178.62.71.79${folder.folder}${config?.path ?? '/'}`,
       method: config?.method ?? 'GET',
       headers: config?.headers ?? {},
       data: config?.data ?? {},
       params: config?.method?.toUpperCase() === "GET" ? config.data : {},
     });
+
+    // replace axios config above with fetch
+    // let res = await fetch(`http://178.62.71${folder.folder}${config?.path ?? '/'}`, {
+    //   method: config?.method ?? 'GET',
+    //   headers: config?.headers ?? {},
+    //   // body: config?.data ?? {},
+    //   // params: config?.method?.toUpperCase() === "GET" ? config.data : {},
+    // });
+
+    // if (res.ok) {
+    //   console.log(res.json(), 'res');
+    // }
 
     if (headers['content-type'] === 'application/json' && typeof res === 'string') {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
