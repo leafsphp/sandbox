@@ -76,18 +76,6 @@ const run = async (files: Record<string, any>) => {
       params: config?.method?.toUpperCase() === "GET" ? config.data : {},
     });
 
-    // replace axios config above with fetch
-    // let res = await fetch(`http://178.62.71${folder.folder}${config?.path ?? '/'}`, {
-    //   method: config?.method ?? 'GET',
-    //   headers: config?.headers ?? {},
-    //   // body: config?.data ?? {},
-    //   // params: config?.method?.toUpperCase() === "GET" ? config.data : {},
-    // });
-
-    // if (res.ok) {
-    //   console.log(res.json(), 'res');
-    // }
-
     if (headers['content-type'] === 'application/json' && typeof res === 'string') {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
