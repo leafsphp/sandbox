@@ -77,6 +77,12 @@ RUN rsync -ar /var/www/html/public-npm/ /var/www/html/ \
     && rm -rf /var/www/html/public-npm \
     && chown -R www-data:www-data /var/www/html
 
+# RUN rm -rf /etc/nginx/sites-enabled/default
+RUN unlink /etc/nginx/sites-enabled/default
+
+# COPY --from=base /var/www/html/default /etc/nginx/sites-enabled/default
+RUN ln -s /var/www/html/default /etc/nginx/sites-enabled/
+
 EXPOSE 8080
 
 ENTRYPOINT ["/entrypoint"]
